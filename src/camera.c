@@ -34,6 +34,16 @@ GFC_Vector2D camera_get_offset()
 	return gfc_vector2d(-_camera.position.x, -_camera.position.y); //check back
 }
 
+GFC_Vector2D camera_get_size()
+{
+	return _camera.size;
+}
+
+GFC_Vector2D camera_get_diff()
+{
+	return _camera.size;
+}
+
 void camera_apply_bounds()
 {
 	if ((_camera.position.x + _camera.size.x) > (_camera.bounds.x + _camera.bounds.w))

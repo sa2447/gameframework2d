@@ -32,7 +32,7 @@ Entity* heart_new(int startx, int starty, int team, int total, int speed)
 
 	
 
-	self->going.x = 1700;
+	self->going.x = 2000;
 
 	self->frame = 0;
 	self->position = gfc_vector2d(startx, starty);
@@ -143,6 +143,11 @@ void heart_think(Entity* self)
 		self->total = 1;
 	}
 	
+	if (keys[SDL_SCANCODE_N])
+	{
+		//entity_clear_all(self);
+		self->position.x = 160;
+	}
 
 }
 void heart_update(Entity* self)
@@ -153,6 +158,16 @@ void heart_update(Entity* self)
 	gfc_vector2d_add(self->position, self->position, self->velocity);
 
 }
+
+int player_get_hp(Entity* self)
+{
+	int currenthp;
+
+	currenthp = self->total;
+
+	return currenthp;
+}
+
 void heart_free(Entity* self)
 {
 	if (!self)return;

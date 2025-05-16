@@ -117,9 +117,6 @@
     <ClCompile Include="..\src\player.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\monster.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="spawn.c">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -135,22 +132,13 @@
     <ClCompile Include="..\src\projectile.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\boss.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\adv_skirmisher.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\assassin.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\shield_bot.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\skirmisher.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\heart.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\spawning.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\tracker.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -260,9 +248,6 @@
     <ClInclude Include="..\include\player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\monster.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="spawn.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -281,22 +266,13 @@
     <ClInclude Include="..\include\projectile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\boss.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\adv_skirmisher.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\assassin.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\shield_bot.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\skirmisher.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\include\heart.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\spawning.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\tracker.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,0 +1,18 @@
+{
+	"name":"testLevel",
+	"tileMap":
+	[
+		[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,]
+		
+		
+		
+		
+		
+		
+
+
+gfc_ input_init(controlls config goes here);
+
+sj_object_get_"float"(json,"speed",&speed);
+
+from_def for configs from_file for individual files

@@ -11,6 +11,7 @@
 #include "player.h"
 #include "world.h"
 #include "heart.h"
+#include "tracker.h"
 
 int main(int argc, char * argv[])
 {
@@ -27,13 +28,18 @@ int main(int argc, char * argv[])
     );
 
     Entity *player;
-    Entity *monster;
-    Entity* adv_skrimisher;
-    Entity* skirmisher;
-    Entity* assassin;
-    Entity* shield_bot;
-    Entity* boss;
     Entity* heart;
+    Entity* tracker;
+
+    SJson* save;
+
+
+
+    GFC_Rect player_hb;
+    GFC_Rect enemy_hb;
+
+    int startx = 0, starty = 0;
+    int level_selected = 3;
     
     /*program initializtion*/
     init_logger("gf2d.log",0);
@@ -57,61 +63,20 @@ int main(int argc, char * argv[])
     /*demo setup*/
     //sprite = gf2d_sprite_load_image("images/backgrounds/level_tileset.png");
     mouse = gf2d_sprite_load_all("images/pointer.png",32,32,16,0);
-    
-    //spawn player
-    player = player_new(5, 5, 2, 0);
 
-    //spawn mobs
-
-    //spawn rams
-    monster = monster_new(500, 70,  player, 5, 0, 3);
-    monster = monster_new(500, 200, player, 5, 0, 3);
-    monster = monster_new(500, 300, player, 5, 0, 3);
-    monster = monster_new(500, 400, player, 5, 0, 3);
-    monster = monster_new(500, 500, player, 5, 0, 3);
-    monster = monster_new(500, 600, player, 5, 0, 3);
-
-    //spawn skirmisher
-    skirmisher = new_skirmisher(1000, 100, player, 20, 10, 40);
-    skirmisher = new_skirmisher(1000, 200, player, 20, 10, 40);
-    skirmisher = new_skirmisher(1000, 300, player, 20, 10, 40);
-    skirmisher = new_skirmisher(1000, 400, player, 20, 10, 40);
-    skirmisher = new_skirmisher(1000, 500, player, 20, 10, 40);
-
-
-    //spawn adv.skirmisher
-    adv_skrimisher = new_adv_skirmisher(1500, 100, player, 20, 10, 40);
-    adv_skrimisher = new_adv_skirmisher(1500, 200, player, 20, 10, 40);
-    adv_skrimisher = new_adv_skirmisher(1500, 300, player, 20, 10, 40);
-    adv_skrimisher = new_adv_skirmisher(1500, 400, player, 20, 10, 40);
-    adv_skrimisher = new_adv_skirmisher(1500, 500, player, 20, 10, 40);
-
-
-
-    //spawn assassin
-    assassin = assassin_new(700, 70,  player, 10, 5, 40);
-    assassin = assassin_new(700, 200, player, 10, 5, 40);
-    assassin = assassin_new(700, 300, player, 10, 5, 40);
-    assassin = assassin_new(700, 400, player, 10, 5, 40);
-    assassin = assassin_new(700, 500, player, 10, 5, 40);
-
-
-    //spawn shield drone
-    shield_bot = new_shield_bot(1400, 70, player, 5, 20, 10);
-    shield_bot = new_shield_bot(1400, 200, player, 5, 20, 10);
-    shield_bot = new_shield_bot(1400, 300, player, 5, 20, 10);
-    shield_bot = new_shield_bot(1400, 400, player, 5, 20, 10);
-    shield_bot = new_shield_bot(1400, 500, player, 5, 20, 10);
-
-
-    //spawn boss
-    boss = boss_new(2000, 400, player,50, 30, 100);
-
-    heart = heart_new(160, 700, 0, 5, 2);
+    //heart = heart_new(160, 700, 0, 5, 2);
 
     //level stuff
-    level = level_load("defs/levels/level_1.map");
+    level = level_load("defs/levels/levels.map", level_selected);
     level_setup_camera(level);
+
+   
+    
+    player = NULL;
+    heart = NULL;
+    tracker = NULL;
+  
+    // assassin = assassin_new(startx + 50, starty, player, 5, 5, 5);
 
     slog("press [escape] to quit");
     /*main game loop*/
@@ -126,15 +91,18 @@ int main(int argc, char * argv[])
 
         entity_system_think();
         entity_system_update();
-
         
         gf2d_graphics_clear_screen();// clears drawing buffers
         // all drawing should happen betweem clear_screen and next_frame
             //backgrounds drawn first
             //gf2d_sprite_draw_image(sprite,gfc_vector2d(0,0));
+
+       
             
         level_draw(level);
         entity_system_draw();
+
+
 
         //font_draw_text("Press Escape to quit \n isn't that neat", FS_small, GFC_COLOR_CYAN, gfc_vector2d(10, 10));
 
@@ -154,9 +122,99 @@ int main(int argc, char * argv[])
         
         if (keys[SDL_SCANCODE_ESCAPE])done = 1; // exit condition
         //slog("Rendering at %f FPS",gf2d_graphics_get_frames_per_second());
+
+
+        if (keys[SDL_SCANCODE_0]) // Main Menu
+        {
+            entity_clear_all(NULL);
+            level_selected = 3;
+            slog("3 pressed");
+            level = level_load("defs/levels/levels.map", level_selected);
+            //entity_free(player);
+
+        }
+        if (keys[SDL_SCANCODE_1]) //new game
+        {
+            //entity_free(player);
+            entity_clear_all(NULL);
+
+            level_selected = 1;
+            slog("1 pressed");
+            level = level_load("defs/levels/levels.map", level_selected);
+            level_setup_camera(level);
+
+            startx = get_spawn_x("defs/levels/levels.map", level_selected);
+            starty = get_spawn_y("defs/levels/levels.map", level_selected);
+
+            heart = heart_new(160, 700, 0, 5, 2);
+            player = player_load("defs/ents/player_default.def", startx, starty, level_selected,level,heart);
+            tracker = tracker_new(startx, 65, 0, 1, 2);
+            
+        }
+        if (keys[SDL_SCANCODE_2]) // continue
+        {
+           // entity_free(player);
+            entity_clear_all(NULL);
+
+
+
+            save = "defs/ents/player_save.def";
+            level_selected = get_current_level(save);
+
+            level = level_load("defs/levels/levels.map", level_selected);
+            level_setup_camera(level);
+
+            startx = get_spawn_x("defs/levels/levels.map", level_selected);
+            starty = get_spawn_y("defs/levels/levels.map", level_selected);
+
+            //save = sj_copy("defs/ents/player_default.def");
+            //sj_save(save, "defs/ents/player_save.def");
+            
+            heart = heart_new(160, 700, 0, 5, 2);
+            player = player_load(save, startx, starty, level_selected, level, heart);
+            tracker = tracker_new(startx, 65, 0, 1, 2);
+
+
+        }
+        if (keys[SDL_SCANCODE_3]) // bestiary
+        {
+            entity_clear_all(NULL);
+            level_selected = 4;
+            slog("3 pressed");
+            level = level_load("defs/levels/levels.map", level_selected);
+            //entity_free(player);
+            
+        }
+        if (keys[SDL_SCANCODE_L])// Death Screen
+        {
+            entity_clear_all(NULL);
+            level_selected = 5;
+            slog("3 pressed");
+            level = level_load("defs/levels/levels.map", level_selected);
+        }
+        if (keys[SDL_SCANCODE_N] && player->position.x >2000)// Next Screen
+        {
+            int now;
+
+            level_selected = 2;
+            slog("2 pressed");
+            level = level_load("defs/levels/levels.map", level_selected);
+            tracker = tracker_new(startx, 65, 0, 1, 2);
+            
+           
+            player->position.x = startx;
+            //heart = heart_new(160, 700, 0, 4, 2);
+
+            //heart->position.x = startx;
+
+            
+            
+        }
+
     }
     entity_free(player);
     level_free(level);
+    
 
     slog("---==== END ====---");
     return 0;

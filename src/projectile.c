@@ -6,43 +6,47 @@ void projectile_think(Entity* self);
 void projectile_update(Entity* self);
 void projectile_free(Entity* self);
 
-Entity *projectile_new(int startx, int starty, int team, int damage, int dtd, int speed)
+Entity *projectile_new(int startx, int starty, Teams side, int damage, int dtd, int speed)
 {
-	Entity* self;
+	Entity* projectile;
 
-	self = entity_new();
+	projectile = entity_new();
 
-	if (!self)
+	
+
+	if (!projectile)
 	{
-		slog("failed to spawn a player");
+		slog("failed to spawn a projectile");
 		return NULL;
 
 	}
 
-	self->frame = 0;
-	self->position = gfc_vector2d(startx, starty);
+	projectile->frame = 0;
+	projectile->position = gfc_vector2d(startx, starty);
 
-	self->speed = speed;
-	self->team = team;
-	self->damage = damage;
-	self->distance_to_die = dtd;
+	projectile->speed = speed;
+	projectile->team = side;
+	projectile->damage = damage;
+	projectile->distance_to_die = dtd;
 
-	self->think = projectile_think;
-	self->update = projectile_update;
-	self->free = projectile_free;
+	projectile->type = T_Projectile;
 
-	if (self->team == 0)
+	projectile->think = projectile_think;
+	projectile->update = projectile_update;
+	projectile->free = projectile_free;
+
+	if (projectile->team == T_Player)
 	{
-		self->sprite = gf2d_sprite_load_all(
+		projectile->sprite = gf2d_sprite_load_all(
 			"images/projectiles/player_shot.png",
 			16,
 			8,
 			1,
 			0);
 	}
-	if (self->team == 1)
+	if (projectile->team == (T_Enemy || T_Boss))
 	{
-		self->sprite = gf2d_sprite_load_all(
+		projectile->sprite = gf2d_sprite_load_all(
 			"images/projectiles/enemy_shot.png",
 			16,
 			8,
@@ -50,47 +54,65 @@ Entity *projectile_new(int startx, int starty, int team, int damage, int dtd, in
 			0);
 	}
 
-	self->frame = 0;
-	self->position = gfc_vector2d(startx, starty);
+	projectile->frame = 0;
+	projectile->position = gfc_vector2d(startx, starty);
 	
 }
 
-void projectile_think(Entity *self)
+void projectile_think(Entity * projectile)
 {
 	GFC_Vector2D dir = { 0 };
-	int speed = self->speed;
-	int dtd = self->distance_to_die;
-	int current = self->position.x;
+	int speed = projectile->speed;
+	int dtd = projectile->distance_to_die;
+	int current = projectile->position.x;
+	const Uint8* keys;
 
-	if (self->team == 0)
+	if (projectile->team == T_Player)
 	{
-		self->position.x += speed;
-	}
-
-	if (self->team == 1)
-	{
-		self->position.x -= speed;
-	}
-
-	if (self->team == 1)
-	{
-		if(self->position.x == 500)
-		{ 
-		projectile_free(self);
+		projectile->position.x += speed;
+		if (projectile->position.x == current + dtd)
+		{
+			projectile_free(projectile);
 		}
 	}
 
+	if (projectile->team == T_Enemy)
+	{
+		projectile->position.x -= speed;
+		if (projectile->position.x == current - dtd)
+		{
+			projectile_free(projectile);
+		}
+	}
+
+	if (projectile->team == 1)
+	{
+		if(projectile->position.x == 500)
+		{ 
+		projectile_free(projectile);
+		}
+	}
+
+	keys = SDL_GetKeyboardState(NULL);
+
+	if (keys[SDL_SCANCODE_N])
+	{
+		projectile_free(projectile);
+	}
+
+
+
 }
-void projectile_update(Entity* self)
+void projectile_update(Entity* projectile)
 {
-	if (!self)return;
+	if (!projectile)return;
 
 
-	gfc_vector2d_add(self->position, self->position, self->velocity);
+	gfc_vector2d_add(projectile->position, projectile->position, projectile->velocity);
 
 }
-void projectile_free(Entity* self)
+void projectile_free(Entity* projectile)
 {
-	if (!self)return;
-	entity_free(self);
+	if (!projectile)return;
+	entity_free(projectile);
 }

@@ -12,9 +12,13 @@ typedef struct
 	Uint32 tileHeight; //tiles high
 	Uint32 tileWidth; //tiles wide
 
+	int *start_x;
+	int *start_y;
+	int *selected;
+
 }Level;
 
-Level* level_load(const char* filename);
+Level* level_load(const char* filename, int levelselcted);
 
 Level *level_test_new();
 
@@ -22,11 +26,18 @@ Level *level_new(Uint32 width, Uint32 height);
 
 void level_free(Level *level);
 
+void level_free_soft(Level* level);
+
 void level_draw(Level *level);
 
 void level_tile_layer_build(Level* level);
 
 void level_setup_camera(Level* level);
+
+int get_spawn_x(const char* filename, int levelselcted);
+int get_spawn_y(const char* filename, int levelselcted);
+
+
 
 #endif
 

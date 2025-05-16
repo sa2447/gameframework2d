@@ -1,29 +1,98 @@
 #include "simple_logger.h"
 
+#include "gf2d_draw.h"
+#include "gfc_shape.h"
+
 #include "camera.h"
 #include "player.h"
 #include "projectile.h"
 #include "heart.h"
+
+#include "spawning.h"
+
 
 
 void player_think(Entity *self);
 void player_update(Entity *self);
 void player_free(Entity *self);
 
-Entity *player_new(int health, int shield, int speed, int currency)
+Entity* player_load(const char* filename, int startx, int starty, int level, Level *current, Entity *hearts)
 {
-	Entity *self;
+
+	SJson* json = NULL;
+	SJson* wjson = NULL;
+
+	Entity* player = NULL;
+	Entity* heart_count;
+	Sprite* sprite;
+
+	int health;
+	int shield;
+	int currency;
+	int speed;
+	int lives;
+	int current_level;
+	int start_x = startx;
+	int start_y = starty;
+
+	Level *now = current;
 
 
-	self = entity_new();
-	if (!self)
+	heart_count = hearts;
+
+
+	if (!filename)
+	{
+		slog("no file name for player load");
+		return NULL;
+	}
+
+	json = sj_load(filename);
+
+	if (!json)
+	{
+		slog("failed to load player file %s", filename);
+	}
+
+	wjson = sj_object_get_value(json, "player_stats");
+	if (!wjson)
+	{
+		slog("missing 'player' object", filename);
+		sj_free(json);
+		return NULL;
+	}
+
+	sj_object_get_value_as_int(wjson, "health", &health);
+	sj_object_get_value_as_int(wjson, "shield", &shield);
+	sj_object_get_value_as_int(wjson, "currency", &currency);
+	sj_object_get_value_as_int(wjson, "speed", &speed);
+	sj_object_get_value_as_int(wjson, "lives", &lives);
+	//sj_object_get_value_as_int(wjson, "level", &current_level);
+
+	player = player_new(health, shield, speed, currency, start_x, start_y,lives,now, heart_count);
+
+
+
+	sj_free(json);
+
+	return player;
+}
+
+Entity* player_new(int health, int shield, int speed, int currency, int startx, int starty, int lives, Level *level, Entity *heart_tracker)
+{
+	Entity *player;
+	Entity* heart = heart_tracker;
+
+	
+	player = entity_new();
+	if (!player)
 	{
 		slog("failed to spawn a player");
 		return NULL;
 
 	}
 	
-	self->sprite = gf2d_sprite_load_all(
+	player->sprite = gf2d_sprite_load_all(
 		"images/entities/player.png",
 		32,
 		32,
@@ -38,88 +107,103 @@ Entity *player_new(int health, int shield, int speed, int currency)
 		0);
 */
 
-	self->frame = 0;
-	self->position = gfc_vector2d(96,384);
+	player->frame = 0;
+	player->position = gfc_vector2d(startx,starty);
 
-	self->speed = speed;
-	self->health = health;
-	self->shield = shield;
-	self->currency = currency;
+	player->speed = speed;
+	player->health = health;
+	player->shield = shield;
+	player->currency = currency;
 
-	self->think = player_think;
-	self->update = player_update;
-	self->free = player_free;
+	player->think = player_think;
+	player->update = player_update;
+	player->free = player_free;
 
-	self->can_move = 0;
-	self->alive = 0;
-	self->going.x = 1700; //set to area before boss
+	player->currentx = player_get_x;
+	player->currenty = player_get_y;
 
-	return self;
+	player->can_move = 0;
+	player->alive = 0;
+	player->going.x = 1700; //set to area before boss
+	
+	player->team = T_Player;
+	player->type = T_Main;
 
+	player->current = level;
 
+	return player;
+
+	
 }
-void player_think(Entity* self)
+void player_think(Entity* player, Entity* other)
 {
 	GFC_Vector2D dir = { 0 };
 	Sint32 mx = 0, my = 0;
 	const Uint8* keys;
-	int speed = self->speed;
+	int speed = player->speed;
 
 	int firingx, firingy, team, damage, distance, b_speed;
 
-	firingx = self->position.x + 10;
-	firingy = self->position.y;
+
+	firingx = player->position.x + 10;
+	firingy = player->position.y;
 	team = 0;
 	damage = 5;
 	distance = 10;
 	b_speed = 4;
 
+	GFC_Rect check;
 
-	if (!self)return;
+	check = player->hitbox;
+
+	
+	if (!player)return;
 
 	keys = SDL_GetKeyboardState(NULL);
 
 	//Start Controls
 
+	player->can_move = 1;
 
-	if (keys[SDL_SCANCODE_W])
+
+	if (keys[SDL_SCANCODE_W]) //Upwards Movement
 	{
-		if (self->position.y >= 70)
+		if (player->position.y >= 70)
 		{
-			self->position.y -= speed;
+			player->position.y -= speed;
 		}
 		else
 		{
-			self->position.y += 10;
+			player->position.y += 10;
 		}
 		//slog("W is pressed");
 	}
-	if (keys[SDL_SCANCODE_A] && (self->can_move >= 1))
+	if (keys[SDL_SCANCODE_A] && (player->can_move >= 1)) //Backwards movement
 	{
-		self->position.x -= speed;
+		player->position.x -= speed;
 		//slog("A is pressed");
 	}
-	if (keys[SDL_SCANCODE_S])
+	if (keys[SDL_SCANCODE_S]) //Downwards Movement
 	{
-		if (self->position.y <= 650)
+		if (player->position.y <= 650)
 		{
-			self->position.y += speed;
+			player->position.y += speed;
 		}
 		else
 		{
-			self->position.y -= 10;
+			player->position.y -= 10;
 		}
 		//slog("S is pressed");
 	}
-	if (keys[SDL_SCANCODE_D] && (self->can_move >= 1))
+	if (keys[SDL_SCANCODE_D] && (player->can_move >= 1)) //Forward movement
 	{
-		if (self->position.x <= 2000)
+		if (player->position.x <= 2100)
 		{
-			self->position.x += speed;
+			player->position.x += speed;
 		}
 		else
 		{
-			self->position.x -= 10;
+			player->position.x -= 10;
 		}
 		//slog("D is pressed");
 	}
@@ -128,88 +212,180 @@ void player_think(Entity* self)
 		slog("interact");
 	}
 
-
-
-	/*
-	int timer = self->position.x;
-
-	if (timer % 50 == 0)
+	if (keys[SDL_SCANCODE_L])
 	{
-		projectile_new(firingx, firingy, team, damage, distance, b_speed);
+		player_free(player);
+
 	}
-*/
+
 //Auto Scroll until boss fight
 
-/**/
-	if (self->position.x != self->going.x)
+
+	if (player->position.x != player->going.x)
 	{
-		if (self->position.x < self->going.x)
+		if (player->position.x < player->going.x)
 		{
-			self->position.x += speed;
+			player->position.x += speed;
 		}
 	}
-	else
+	if (player->position.x == player->going.x)
 	{
 		//self->alive += 1;
-		self->can_move += 1;
+		player->can_move = 1;
 	}
-
-	if (self->alive >= 1)
+	/*
+	if (player->alive >= 1)
 	{
-		player_free(self);
+		player_free(player);
 		player_new(5, 5, 2, 0);
-	}
+	}*/
 	//End Auto Scroll
 
 
 
 	if (keys[SDL_SCANCODE_G])
 	{
-		heart_loss(self, 1);
+		heart_loss(player, 1);
 
 		//teleport?
 	}
-
-
-
-
-
 
 	if (SDL_GetMouseState(&mx, &my) == SDL_BUTTON(1))
 	{
 
 
-		slog("fire");
+		//slog("fire");
 		projectile_new(firingx, firingy, team, damage, distance, b_speed);
 	}
 
-	//End Controls
 
-
-	/* Testing Free
-	if (SDL_GetMouseState(&mx, &my) == SDL_BUTTON(2))
+	//next level
+	if (player->position.x >= 2000 && keys[SDL_SCANCODE_N])
 	{
-		player_free(self);
-		slog("ship crashing sounds");
+		//heart = heart_new(160, 700, 0, 5, 2); player_advance(player);
+	}
+	
+	//Content Generation
+	int timer1 = gfc_random_int(100);
+	int choice;
+	int schoice;
+
+	int xdis;
+	int ydis;
+	
+
+	int stop_spawns;
+
+	stop_spawns = player->going.x - 100;
+
+	if(player->position.x == player->going.x)
+	{
+		enemy_new("defs/ents/en.def", 6, 2000,384 , check);
 		return;
 	}
-	*/
+	else 
+	{	
+		if (timer1 == 50 && (player->position.x < (player->going.x - 100)))
+		{
+
+			choice = gfc_random_int(5) + 1;
+			schoice = choice;
+
+			xdis = player->position.x + gfc_random_int(100) + 500;
+			ydis = gfc_random_int(550) + 80;
+			enemy_new("defs/ents/en.def", choice, xdis, ydis, check);
+		}
+
+	}
+
+
 }
 
-
-void player_update(Entity *self)
+float player_get_x(Entity* player)
 {
-	if (!self)return;
+	int currentx;
+
+	currentx = player->position.x;
+	
+	return currentx;
+}
+
+float player_get_y(Entity* player)
+{
+	int currenty;
+
+	currenty = player->position.y;
+
+	return currenty;
+}
+int get_current_level(const char* filename)
+{
+	SJson* json = NULL;
+	SJson* wjson = NULL;
+
+	Entity* player = NULL;
+
+	int current_level;
+
+
+
+	if (!filename)
+	{
+		slog("no file name for level load");
+		return NULL;
+	}
+
+	json = sj_load(filename);
+
+	if (!json)
+	{
+		slog("failed to load level file %s", filename);
+	}
+
+	wjson = sj_object_get_value(json, "player_stats");
+	if (!wjson)
+	{
+		slog("missing 'player' object", filename);
+		sj_free(json);
+		return NULL;
+	}
+
+	sj_object_get_value_as_int(wjson, "current_level", &current_level);
+
+	return current_level;
+
+
+}
+void player_update(Entity * player)
+{
+
+	if (!player)return;
 
 	//self->frame += 0.1;
 	//if (self->frame >= 16)self->frame = 0;
 
-	gfc_vector2d_add(self->position, self->position, self->velocity);
+	gfc_vector2d_add(player->position, player->position, player->velocity);
 
-	camera_center_on(self->position);
+	camera_center_on(player->position);
 }
-void player_free(Entity *self)
+
+void player_advance(Entity* player)
 {
-	if (!self)return;
-	entity_free(self);
+	Level *remove;
+	Level* level;
+
+	remove = player->current;
+
+}
+void player_free(Entity * player)
+{
+	Level* level;
+
+	if (!player)return;
+
+	level = level_load("defs/levels/levels.map", 2);
+	//sj_save("defs/ents/player_default.def", "defs/ents/player_save.def");
+	entity_clear_all(NULL);
+
+	entity_free(player);
 }

@@ -1,0 +1,24 @@
+{
+	"player_stats":
+	{
+		"max_health": 5,
+		"max_shield": 5,
+		
+		"health"    : 5,
+		"shield"    : 5,
+		"currency"  : 0,
+		"speed"		: 2,
+		"lives"		: 3,
+		
+		"sprite"	: "images/entities/player.png",
+		"f_width"	: 32,
+		"f_height"	: 32,
+		"frames_pl"	:  1,
+		"keepsurf"	:  0,
+		
+		"spawn_x"	:  0,
+		"spawn_y"   :  0,
+		
+		"current_level" : 2
+	}
+}

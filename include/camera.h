@@ -22,5 +22,9 @@ void camera_set_size(GFC_Vector2D size);
 
 void camera_center_on(GFC_Vector2D target);
 
+GFC_Vector2D camera_get_size();
+
+GFC_Vector2D camera_get_diff();
+
 #endif // !__CAMERA_H__
 

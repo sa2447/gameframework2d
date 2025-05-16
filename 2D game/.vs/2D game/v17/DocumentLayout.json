@@ -3,40 +3,61 @@
   "WorkspaceRootPath": "C:\\Users\\sarms\\Git\\gameframework2d\\2D game\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B33A8E31-1D77-48B2-955D-7DDE6B275277}|2D game.vcxproj|C:\\Users\\sarms\\Git\\gameframework2d\\src\\heart.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{B33A8E31-1D77-48B2-955D-7DDE6B275277}|2D game.vcxproj|C:\\Users\\sarms\\Git\\gameframework2d\\src\\game.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B33A8E31-1D77-48B2-955D-7DDE6B275277}|2D game.vcxproj|C:\\Users\\sarms\\Git\\gameframework2d\\src\\player.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B33A8E31-1D77-48B2-955D-7DDE6B275277}|2D game.vcxproj|C:\\Users\\sarms\\Git\\gameframework2d\\src\\monster.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{B33A8E31-1D77-48B2-955D-7DDE6B275277}|2D game.vcxproj|C:\\Users\\sarms\\Git\\gameframework2d\\src\\tracker.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B33A8E31-1D77-48B2-955D-7DDE6B275277}|2D game.vcxproj|C:\\Users\\sarms\\Git\\gameframework2d\\src\\heart.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B33A8E31-1D77-48B2-955D-7DDE6B275277}|2D game.vcxproj|C:\\Users\\sarms\\Git\\gameframework2d\\include\\tracker.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B33A8E31-1D77-48B2-955D-7DDE6B275277}|2D game.vcxproj|C:\\Users\\sarms\\Git\\gameframework2d\\include\\heart.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B33A8E31-1D77-48B2-955D-7DDE6B275277}|2D game.vcxproj|C:\\Users\\sarms\\Git\\gameframework2d\\include\\world.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{B33A8E31-1D77-48B2-955D-7DDE6B275277}|2D game.vcxproj|C:\\Users\\sarms\\Git\\gameframework2d\\include\\camera.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B33A8E31-1D77-48B2-955D-7DDE6B275277}|2D game.vcxproj|C:\\Users\\sarms\\Git\\gameframework2d\\include\\player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B33A8E31-1D77-48B2-955D-7DDE6B275277}|2D game.vcxproj|C:\\Users\\sarms\\Git\\gameframework2d\\src\\world.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B33A8E31-1D77-48B2-955D-7DDE6B275277}|2D game.vcxproj|C:\\Users\\sarms\\Git\\gameframework2d\\src\\entity.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{B33A8E31-1D77-48B2-955D-7DDE6B275277}|2D game.vcxproj|C:\\Users\\sarms\\Git\\gameframework2d\\src\\camera.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B33A8E31-1D77-48B2-955D-7DDE6B275277}|2D game.vcxproj|C:\\Users\\sarms\\Git\\gameframework2d\\include\\entity.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{B33A8E31-1D77-48B2-955D-7DDE6B275277}|2D game.vcxproj|C:\\Users\\sarms\\Git\\gameframework2d\\include\\world.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B33A8E31-1D77-48B2-955D-7DDE6B275277}|2D game.vcxproj|C:\\Users\\sarms\\Git\\gameframework2d\\src\\entity.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B33A8E31-1D77-48B2-955D-7DDE6B275277}|2D game.vcxproj|C:\\Users\\sarms\\Git\\gameframework2d\\src\\projectile.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B33A8E31-1D77-48B2-955D-7DDE6B275277}|2D game.vcxproj|C:\\Users\\sarms\\Git\\gameframework2d\\src\\game.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{B33A8E31-1D77-48B2-955D-7DDE6B275277}|2D game.vcxproj|C:\\Users\\sarms\\Git\\gameframework2d\\gfc\\include\\gfc_shape.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B33A8E31-1D77-48B2-955D-7DDE6B275277}|2D game.vcxproj|C:\\Users\\sarms\\Git\\gameframework2d\\src\\adv_skirmisher.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{B33A8E31-1D77-48B2-955D-7DDE6B275277}|2D game.vcxproj|C:\\Users\\sarms\\Git\\gameframework2d\\include\\spawning.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B33A8E31-1D77-48B2-955D-7DDE6B275277}|2D game.vcxproj|C:\\Users\\sarms\\Git\\gameframework2d\\src\\boss.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{B33A8E31-1D77-48B2-955D-7DDE6B275277}|2D game.vcxproj|C:\\Users\\sarms\\Git\\gameframework2d\\include\\entity.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B33A8E31-1D77-48B2-955D-7DDE6B275277}|2D game.vcxproj|C:\\Users\\sarms\\Git\\gameframework2d\\src\\spawning.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B33A8E31-1D77-48B2-955D-7DDE6B275277}|2D game.vcxproj|C:\\Users\\sarms\\Git\\gameframework2d\\gfc\\simple_json\\src\\simple_json.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B33A8E31-1D77-48B2-955D-7DDE6B275277}|2D game.vcxproj|C:\\Users\\sarms\\Git\\gameframework2d\\gfc\\src\\gfc_config.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,73 +67,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "game.c",
-              "DocumentMoniker": "C:\\Users\\sarms\\Git\\gameframework2d\\src\\game.c",
-              "RelativeDocumentMoniker": "..\\src\\game.c",
-              "ToolTip": "C:\\Users\\sarms\\Git\\gameframework2d\\src\\game.c",
-              "RelativeToolTip": "..\\src\\game.c",
-              "ViewState": "AgIAAF0AAAAAAAAAAAAAAG0AAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-01-27T16:47:02.388Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "entity.c",
-              "DocumentMoniker": "C:\\Users\\sarms\\Git\\gameframework2d\\src\\entity.c",
-              "RelativeDocumentMoniker": "..\\src\\entity.c",
-              "ToolTip": "C:\\Users\\sarms\\Git\\gameframework2d\\src\\entity.c",
-              "RelativeToolTip": "..\\src\\entity.c",
-              "ViewState": "AgIAAIcAAAAAAAAAAAAAAHUAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-02-10T00:21:06.001Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "world.c",
-              "DocumentMoniker": "C:\\Users\\sarms\\Git\\gameframework2d\\src\\world.c",
-              "RelativeDocumentMoniker": "..\\src\\world.c",
-              "ToolTip": "C:\\Users\\sarms\\Git\\gameframework2d\\src\\world.c",
-              "RelativeToolTip": "..\\src\\world.c",
-              "ViewState": "AgIAABEAAAAAAAAAAAAjwFAAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-03-07T19:52:34.535Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "world.h",
-              "DocumentMoniker": "C:\\Users\\sarms\\Git\\gameframework2d\\include\\world.h",
-              "RelativeDocumentMoniker": "..\\include\\world.h",
-              "ToolTip": "C:\\Users\\sarms\\Git\\gameframework2d\\include\\world.h",
-              "RelativeToolTip": "..\\include\\world.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-07T19:41:56.628Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 15,
               "Title": "entity.h",
               "DocumentMoniker": "C:\\Users\\sarms\\Git\\gameframework2d\\include\\entity.h",
               "RelativeDocumentMoniker": "..\\include\\entity.h",
               "ToolTip": "C:\\Users\\sarms\\Git\\gameframework2d\\include\\entity.h",
               "RelativeToolTip": "..\\include\\entity.h",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAAB0AAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAADkAAAAAAAAAAAASwEkAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-02-10T00:06:53.079Z",
               "IsPinned": true,
@@ -120,82 +85,30 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "heart.h",
-              "DocumentMoniker": "C:\\Users\\sarms\\Git\\gameframework2d\\include\\heart.h",
-              "RelativeDocumentMoniker": "..\\include\\heart.h",
-              "ToolTip": "C:\\Users\\sarms\\Git\\gameframework2d\\include\\heart.h",
-              "RelativeToolTip": "..\\include\\heart.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-12T16:04:49.45Z",
+              "DocumentIndex": 11,
+              "Title": "entity.c",
+              "DocumentMoniker": "C:\\Users\\sarms\\Git\\gameframework2d\\src\\entity.c",
+              "RelativeDocumentMoniker": "..\\src\\entity.c",
+              "ToolTip": "C:\\Users\\sarms\\Git\\gameframework2d\\src\\entity.c",
+              "RelativeToolTip": "..\\src\\entity.c",
+              "ViewState": "AgIAADcAAAAAAAAAAAASwC8AAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2025-05-15T04:14:34.146Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "heart.c",
-              "DocumentMoniker": "C:\\Users\\sarms\\Git\\gameframework2d\\src\\heart.c",
-              "RelativeDocumentMoniker": "..\\src\\heart.c",
-              "ToolTip": "C:\\Users\\sarms\\Git\\gameframework2d\\src\\heart.c",
-              "RelativeToolTip": "..\\src\\heart.c",
-              "ViewState": "AgIAAGkAAAAAAAAAAAAAwH8AAAACAAAAAAAAAA==",
+              "Title": "game.c",
+              "DocumentMoniker": "C:\\Users\\sarms\\Git\\gameframework2d\\src\\game.c",
+              "RelativeDocumentMoniker": "..\\src\\game.c",
+              "ToolTip": "C:\\Users\\sarms\\Git\\gameframework2d\\src\\game.c",
+              "RelativeToolTip": "..\\src\\game.c",
+              "ViewState": "AgIAAKgAAAAAAAAAAAAAAL0AAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-03-12T16:04:07.519Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "projectile.c",
-              "DocumentMoniker": "C:\\Users\\sarms\\Git\\gameframework2d\\src\\projectile.c",
-              "RelativeDocumentMoniker": "..\\src\\projectile.c",
-              "ToolTip": "C:\\Users\\sarms\\Git\\gameframework2d\\src\\projectile.c",
-              "RelativeToolTip": "..\\src\\projectile.c",
-              "ViewState": "AgIAADYAAAAAAAAAAAAAAEoAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-03-12T15:44:19.817Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "adv_skirmisher.c",
-              "DocumentMoniker": "C:\\Users\\sarms\\Git\\gameframework2d\\src\\adv_skirmisher.c",
-              "RelativeDocumentMoniker": "..\\src\\adv_skirmisher.c",
-              "ToolTip": "C:\\Users\\sarms\\Git\\gameframework2d\\src\\adv_skirmisher.c",
-              "RelativeToolTip": "..\\src\\adv_skirmisher.c",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-03-12T13:49:02.433Z"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "boss.c",
-              "DocumentMoniker": "C:\\Users\\sarms\\Git\\gameframework2d\\src\\boss.c",
-              "RelativeDocumentMoniker": "..\\src\\boss.c",
-              "ToolTip": "C:\\Users\\sarms\\Git\\gameframework2d\\src\\boss.c",
-              "RelativeToolTip": "..\\src\\boss.c",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEEAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-03-12T13:42:33.55Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "monster.c",
-              "DocumentMoniker": "C:\\Users\\sarms\\Git\\gameframework2d\\src\\monster.c",
-              "RelativeDocumentMoniker": "..\\src\\monster.c",
-              "ToolTip": "C:\\Users\\sarms\\Git\\gameframework2d\\src\\monster.c",
-              "RelativeToolTip": "..\\src\\monster.c",
-              "ViewState": "AgIAADYAAAAAAAAAAAAAAAwAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-02-10T02:32:19.466Z",
+              "WhenOpened": "2025-01-27T16:47:02.388Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
@@ -206,9 +119,209 @@
               "RelativeDocumentMoniker": "..\\src\\player.c",
               "ToolTip": "C:\\Users\\sarms\\Git\\gameframework2d\\src\\player.c",
               "RelativeToolTip": "..\\src\\player.c",
-              "ViewState": "AgIAAFQAAAAAAAAAAAAAAHAAAAACAAAAAAAAAA==",
+              "ViewState": "AgIAAM8AAAAAAAAAAAAqwI0AAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2025-02-10T02:39:35.851Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "heart.c",
+              "DocumentMoniker": "C:\\Users\\sarms\\Git\\gameframework2d\\src\\heart.c",
+              "RelativeDocumentMoniker": "..\\src\\heart.c",
+              "ToolTip": "C:\\Users\\sarms\\Git\\gameframework2d\\src\\heart.c",
+              "RelativeToolTip": "..\\src\\heart.c",
+              "ViewState": "AgIAAH4AAAAAAAAAAAAAAJUAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2025-05-16T11:03:08.41Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "heart.h",
+              "DocumentMoniker": "C:\\Users\\sarms\\Git\\gameframework2d\\include\\heart.h",
+              "RelativeDocumentMoniker": "..\\include\\heart.h",
+              "ToolTip": "C:\\Users\\sarms\\Git\\gameframework2d\\include\\heart.h",
+              "RelativeToolTip": "..\\include\\heart.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-16T11:02:57.727Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "tracker.h",
+              "DocumentMoniker": "C:\\Users\\sarms\\Git\\gameframework2d\\include\\tracker.h",
+              "RelativeDocumentMoniker": "..\\include\\tracker.h",
+              "ToolTip": "C:\\Users\\sarms\\Git\\gameframework2d\\include\\tracker.h",
+              "RelativeToolTip": "..\\include\\tracker.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-16T11:01:09.27Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "tracker.c",
+              "DocumentMoniker": "C:\\Users\\sarms\\Git\\gameframework2d\\src\\tracker.c",
+              "RelativeDocumentMoniker": "..\\src\\tracker.c",
+              "ToolTip": "C:\\Users\\sarms\\Git\\gameframework2d\\src\\tracker.c",
+              "RelativeToolTip": "..\\src\\tracker.c",
+              "ViewState": "AgIAAIcAAAAAAAAAAAAiwJUAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2025-05-16T11:02:01.12Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "camera.h",
+              "DocumentMoniker": "C:\\Users\\sarms\\Git\\gameframework2d\\include\\camera.h",
+              "RelativeDocumentMoniker": "..\\include\\camera.h",
+              "ToolTip": "C:\\Users\\sarms\\Git\\gameframework2d\\include\\camera.h",
+              "RelativeToolTip": "..\\include\\camera.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-16T10:14:31.825Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "camera.c",
+              "DocumentMoniker": "C:\\Users\\sarms\\Git\\gameframework2d\\src\\camera.c",
+              "RelativeDocumentMoniker": "..\\src\\camera.c",
+              "ToolTip": "C:\\Users\\sarms\\Git\\gameframework2d\\src\\camera.c",
+              "RelativeToolTip": "..\\src\\camera.c",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAACwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2025-05-16T10:10:59.129Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "world.h",
+              "DocumentMoniker": "C:\\Users\\sarms\\Git\\gameframework2d\\include\\world.h",
+              "RelativeDocumentMoniker": "..\\include\\world.h",
+              "ToolTip": "C:\\Users\\sarms\\Git\\gameframework2d\\include\\world.h",
+              "RelativeToolTip": "..\\include\\world.h",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAABwAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-16T08:45:07.773Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "player.h",
+              "DocumentMoniker": "C:\\Users\\sarms\\Git\\gameframework2d\\include\\player.h",
+              "RelativeDocumentMoniker": "..\\include\\player.h",
+              "ToolTip": "C:\\Users\\sarms\\Git\\gameframework2d\\include\\player.h",
+              "RelativeToolTip": "..\\include\\player.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-04-14T15:54:41.31Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "simple_json.c",
+              "DocumentMoniker": "C:\\Users\\sarms\\Git\\gameframework2d\\gfc\\simple_json\\src\\simple_json.c",
+              "RelativeDocumentMoniker": "..\\gfc\\simple_json\\src\\simple_json.c",
+              "ToolTip": "C:\\Users\\sarms\\Git\\gameframework2d\\gfc\\simple_json\\src\\simple_json.c",
+              "RelativeToolTip": "..\\gfc\\simple_json\\src\\simple_json.c",
+              "ViewState": "AgIAAG8AAAAAAAAAAAAiwI8AAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2025-05-16T01:39:57.133Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "gfc_config.c",
+              "DocumentMoniker": "C:\\Users\\sarms\\Git\\gameframework2d\\gfc\\src\\gfc_config.c",
+              "RelativeDocumentMoniker": "..\\gfc\\src\\gfc_config.c",
+              "ToolTip": "C:\\Users\\sarms\\Git\\gameframework2d\\gfc\\src\\gfc_config.c",
+              "RelativeToolTip": "..\\gfc\\src\\gfc_config.c",
+              "ViewState": "AgIAAIEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2025-05-16T01:38:56.489Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "world.c",
+              "DocumentMoniker": "C:\\Users\\sarms\\Git\\gameframework2d\\src\\world.c",
+              "RelativeDocumentMoniker": "..\\src\\world.c",
+              "ToolTip": "C:\\Users\\sarms\\Git\\gameframework2d\\src\\world.c",
+              "RelativeToolTip": "..\\src\\world.c",
+              "ViewState": "AgIAAIcAAAAAAAAAAAAiwJoAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2025-05-15T21:50:02.681Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "spawning.c",
+              "DocumentMoniker": "C:\\Users\\sarms\\Git\\gameframework2d\\src\\spawning.c",
+              "RelativeDocumentMoniker": "..\\src\\spawning.c",
+              "ToolTip": "C:\\Users\\sarms\\Git\\gameframework2d\\src\\spawning.c",
+              "RelativeToolTip": "..\\src\\spawning.c",
+              "ViewState": "AgIAAIgCAAAAAAAAAAAcwKICAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2025-05-16T04:02:30.579Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "spawning.h",
+              "DocumentMoniker": "C:\\Users\\sarms\\Git\\gameframework2d\\include\\spawning.h",
+              "RelativeDocumentMoniker": "..\\include\\spawning.h",
+              "ToolTip": "C:\\Users\\sarms\\Git\\gameframework2d\\include\\spawning.h",
+              "RelativeToolTip": "..\\include\\spawning.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-16T03:58:05.219Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "gfc_shape.h",
+              "DocumentMoniker": "C:\\Users\\sarms\\Git\\gameframework2d\\gfc\\include\\gfc_shape.h",
+              "RelativeDocumentMoniker": "..\\gfc\\include\\gfc_shape.h",
+              "ToolTip": "C:\\Users\\sarms\\Git\\gameframework2d\\gfc\\include\\gfc_shape.h",
+              "RelativeToolTip": "..\\gfc\\include\\gfc_shape.h",
+              "ViewState": "AgIAALYAAAAAAAAAAAAjwNYAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-15T21:30:14.105Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "projectile.c",
+              "DocumentMoniker": "C:\\Users\\sarms\\Git\\gameframework2d\\src\\projectile.c",
+              "RelativeDocumentMoniker": "..\\src\\projectile.c",
+              "ToolTip": "C:\\Users\\sarms\\Git\\gameframework2d\\src\\projectile.c",
+              "RelativeToolTip": "..\\src\\projectile.c",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAAAGUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2025-03-12T15:44:19.817Z",
               "EditorCaption": ""
             }
           ]

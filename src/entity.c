@@ -121,10 +121,37 @@ void entity_draw(Entity *self)
 	GFC_Vector2D offset;
 	GFC_Vector2D position;
 
+	GFC_Rect hitbox;
+
+	
+
 	if (!self)return;
 
 	offset = camera_get_offset();
 	gfc_vector2d_add(position, self->position, offset);
+
+	if (self->type == T_Projectile)
+	{
+		hitbox = gfc_rect(position.x, position.y, 20, 10);
+		gf2d_draw_rect(hitbox, GFC_COLOR_ORANGE);
+		self->hitbox = hitbox;
+	}
+
+	if (self->type == T_Ant)
+	{
+		hitbox = gfc_rect(position.x, position.y, 32, 32);
+		gf2d_draw_rect(hitbox, GFC_COLOR_RED);
+		self->hitbox = hitbox;
+	}
+
+	if (self->type == T_Main)
+	{
+		hitbox = gfc_rect(position.x, position.y, 32, 32);
+		gf2d_draw_rect(hitbox, GFC_COLOR_DARKGREEN);
+		self->hitbox = hitbox;
+	}
+
+
 
 	if (self->sprite);
 	{

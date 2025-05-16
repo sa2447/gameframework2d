@@ -43,9 +43,6 @@ void level_tile_layer_build(Level *level)
 		return;
 	}
 
-
-
-
 	for (j = 0; j < level->tileHeight; j++)
 	{
 		for (i = 0; i < level->tileWidth; i++)
@@ -78,7 +75,7 @@ void level_tile_layer_build(Level *level)
 	}
 }
 
-Level* level_load(const char* filename)
+Level* level_load(const char* filename, int levelselcted)
 {
 	Level* level = NULL;
 
@@ -102,6 +99,10 @@ Level* level_load(const char* filename)
 	int frame_h;
 	int frames_per_line;
 
+	int current_level;
+
+	current_level = levelselcted;
+
 
 
 	if (!filename)
@@ -117,12 +118,57 @@ Level* level_load(const char* filename)
 		slog("failed to load level file %s",filename);
 	}
 
-	wjson = sj_object_get_value(json, "level");
-	if (!wjson)
+
+
+	if(current_level == 1)
+	{ 
+		wjson = sj_object_get_value(json, "level_1");
+		if (!wjson)
+		{
+			slog("missing 'level' object", filename);
+			sj_free(json);
+			return NULL;
+		}
+	}
+	if (current_level == 2)
 	{
-		slog("missing 'level' object", filename);
-		sj_free(json);
-		return NULL;
+		wjson = sj_object_get_value(json, "level_2");
+		if (!wjson)
+		{
+			slog("missing 'level' object", filename);
+			sj_free(json);
+			return NULL;
+		}
+	}
+	if (current_level == 3)
+	{
+		wjson = sj_object_get_value(json, "Main_Menu");
+		if (!wjson)
+		{
+			slog("missing 'level' object", filename);
+			sj_free(json);
+			return NULL;
+		}
+	}
+	if (current_level == 4)
+	{
+		wjson = sj_object_get_value(json, "Beast");
+		if (!wjson)
+		{
+			slog("missing 'level' object", filename);
+			sj_free(json);
+			return NULL;
+		}
+	}
+	if (current_level == 5)
+	{
+		wjson = sj_object_get_value(json, "Game_Over");
+		if (!wjson)
+		{
+			slog("missing 'level' object", filename);
+			sj_free(json);
+			return NULL;
+		}
 	}
 
 	vertical = sj_object_get_value(wjson, "tileMap");
@@ -167,6 +213,7 @@ Level* level_load(const char* filename)
 	sj_object_get_value_as_int(wjson, "frame_h", &frame_h);
 	sj_object_get_value_as_int(wjson, "frames_per_line", &frames_per_line);
 
+
 	level->tileSet = gf2d_sprite_load_all(
 		tileSet,
 		frame_w,
@@ -176,51 +223,12 @@ Level* level_load(const char* filename)
 
 	level_tile_layer_build(level);
 
+	level->selected = current_level;
+
 	sj_free(json);
 
 	return level;
 }
-
-/*
-Level *level_test_new()
-{
-	int i;
-	int j;
-	int width = 65;
-	int height = 45;
-	Level *level;
-
-	level = level_new(width, height);
-
-	if (!level)
-		return NULL;
-
-	level->background = gf2d_sprite_load_image("images/backgrounds/space.png");
-	
-	
-	level->tileSet = gf2d_sprite_load_all(
-		"images/backgrounds/level.png",
-		16,
-		16,
-		1,
-		1);
-
-	for (i = 0; i<width; i++)
-	{
-		level->tileMap[i] = 2;
-		level->tileMap[i + ((height - 1)*width)] = 2;
-	}
-	for (j = 0; j<height; j++)
-	{
-		level->tileMap[j*width] = 2;
-		level->tileMap[j*width + (width-1)] = 2;
-	}
-
-	level_tile_layer_build(level);
-	return level;
-}
-*/
-
 
 Level *level_new(Uint32 width, Uint32 height)
 {
@@ -256,18 +264,31 @@ void level_free(Level *level)
 	free(level);
 
 }
+void level_free_soft(Level* level)
+{
+	if (!level)
+		return;
+	gf2d_sprite_free(level->background);
+	gf2d_sprite_free(level->tileSet);
+	gf2d_sprite_free(level->tileLayer);
+	free(level);
+}
 
 void level_draw(Level *level)
 {
 
 	GFC_Vector2D offset;
 
+	GFC_Vector2D cam, diff, size, parallax = { 0 };
 
 	if (!level)
 		return;
 	offset = camera_get_offset();
+	size = camera_get_size();
+	
 
 	gf2d_sprite_draw_image(level->background, gfc_vector2d(0, 0));
+
 
 	gf2d_sprite_draw_image(level->tileLayer, offset);
 	
@@ -284,5 +305,120 @@ void level_setup_camera(Level *level)
 	camera_set_bounds(gfc_rect(0,0,(level->tileLayer->surface->w),(level->tileLayer->surface->h)));
 	camera_apply_bounds();
 	camera_enable_binding(1);
+
+}
+
+int get_spawn_x(const char* filename, int levelselcted)
+{
+	Level* level = NULL;
+
+	SJson* json = NULL;
+	SJson* wjson = NULL;
+
+	int spawn_x;
+
+	int current_level;
+
+	current_level = levelselcted;
+
+
+
+	if (!filename)
+	{
+		slog("no file name for level load");
+		return NULL;
+	}
+
+	json = sj_load(filename);
+
+	if (!json)
+	{
+		slog("failed to load level file %s", filename);
+	}
+
+
+
+	if (current_level == 1)
+	{
+		wjson = sj_object_get_value(json, "level_1");
+		if (!wjson)
+		{
+			slog("missing 'level' object", filename);
+			sj_free(json);
+			return NULL;
+		}
+	}
+	if (current_level == 2)
+	{
+		wjson = sj_object_get_value(json, "level_2");
+		if (!wjson)
+		{
+			slog("missing 'level' object", filename);
+			sj_free(json);
+			return NULL;
+		}
+	}
+
+	sj_object_get_value_as_int(wjson, "spawn_x", &spawn_x);
+
+	return spawn_x;
+
+
+}
+int get_spawn_y(const char* filename, int levelselcted)
+{
+	Level* level = NULL;
+
+	SJson* json = NULL;
+	SJson* wjson = NULL;
+
+	int spawn_y;
+
+	int current_level;
+
+	current_level = levelselcted;
+
+
+
+	if (!filename)
+	{
+		slog("no file name for level load");
+		return NULL;
+	}
+
+	json = sj_load(filename);
+
+	if (!json)
+	{
+		slog("failed to load level file %s", filename);
+	}
+
+
+
+	if (current_level == 1)
+	{
+		wjson = sj_object_get_value(json, "level_1");
+		if (!wjson)
+		{
+			slog("missing 'level' object", filename);
+			sj_free(json);
+			return NULL;
+		}
+	}
+	if (current_level == 2)
+	{
+		wjson = sj_object_get_value(json, "level_2");
+		if (!wjson)
+		{
+			slog("missing 'level' object", filename);
+			sj_free(json);
+			return NULL;
+		}
+	}
+
+	sj_object_get_value_as_int(wjson, "spawn_y", &spawn_y);
+
+	return spawn_y;
+
 
 }
